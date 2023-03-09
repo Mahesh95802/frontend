@@ -53,3 +53,22 @@ export const GET_CONTENT_TYPE_SCHEMA = (contentTypeId) => ({
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
     }
 })
+
+export const POST_COLLECTION = (data, contentTypeId) => ({
+    url: `${BACKEND_URL}/collections/content-types/${contentTypeId}`,
+    method: "POST",
+    data: data,
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json'
+    }
+})
+
+export const DELETE_COLLECTION = (collectionId) => ({
+    url: `${BACKEND_URL}/collections/${collectionId}`,
+    method: "DELETE",
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    }
+})
+

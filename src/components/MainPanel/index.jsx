@@ -8,8 +8,8 @@ import Collections from '../Collections';
 const MainPanel = ({ title, collections, contentTypeId }) => {
     return (
         <div className="main-panel">
-            <Header title={title}/>
-            {collections ? <Collections collections={collections} contentTypeId={contentTypeId}/> : null }
+            <Header title={title} />
+            {collections && <Collections collections={collections} contentTypeId={contentTypeId} title={title}/> }
         </div>
     )
 }

@@ -33,7 +33,7 @@ const CollectionPage = () => {
     return (
         <div className="collections-page">
             <Sidebar selected={parseInt(contentTypeId)} contentTypes={contentTypes}/>
-            {(contentTypes && collections) && <MainPanel title={contentTypes.find((contentType) => contentType.id === parseInt(contentTypeId)).name} collections={collections} contentTypeId={contentTypeId}/>}
+            {(contentTypes && collections) && <MainPanel title={contentTypes.find((contentType) => contentType.id === parseInt(contentTypeId)).name} collections={collections} contentTypeId={parseInt(contentTypeId)}/>}
         </div>
     );
 }
