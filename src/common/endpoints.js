@@ -45,3 +45,11 @@ export const GET_COLLECTIONS = (contentTypeId) => ({
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
     }
 })
+
+export const GET_CONTENT_TYPE_SCHEMA = (contentTypeId) => ({
+    url: `${BACKEND_URL}/schema/content-types/${contentTypeId}`,
+    method: "GET",
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    }
+})

@@ -1,0 +1,79 @@
+.collections{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(235, 235, 253);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.collections-header{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 30px;
+}
+
+.collections table{
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+}
+
+.collections table thead th{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.collections table tbody tr {
+    text-align: center;
+    background-color: white;
+    /* border-radius: 10px; */
+    border: 0px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    height: 30px;
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+.collections table tbody td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.collections table tbody td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.collections table tbody td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.collections-header > button{
+    /* make button transparent */
+    background-color: transparent;
+    border: none;
+    color:rgb(74, 28, 84);
+    font-size: 20px;
+}
+
+.collection-schema{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

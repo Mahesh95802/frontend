@@ -5,8 +5,8 @@ import './Header.css';
 
 const Header = ({ title }) => {
     return (
-        <div className="main-panel-header">
-            <h1>{title}</h1>
+        <div className="main-panel-header basic-padding">
+            {title}
         </div>
     )
 }

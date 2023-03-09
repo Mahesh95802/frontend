@@ -6,20 +6,9 @@ import makeRequest from "../../utils/makeRequest";
 
 import "./Sidebar.css";
 
-const Sidebar = ({ selected }) => {
+const Sidebar = ({ selected, contentTypes }) => {
 
-    const [contentTypes, setContentTypes] = useState();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        makeRequest(GET_CONTENT_TYPES)
-            .then((res) => {
-                console.log(res);
-                setContentTypes(res);
-            }).catch((err) => {
-                console.log(err);
-            });
-    }, []);
 
     return (
         <div className="sidebar">
@@ -34,7 +23,7 @@ const Sidebar = ({ selected }) => {
                     contentTypes 
                     &&  contentTypes.map((contentType) => {
                         return (
-                            <div className="content-type" key={contentType.id} style={ selected === contentType.id ? { backgroundColor: "black", color: "white" } : null }  onClick={() => navigate(`/content-type/${contentType.id}`)}>
+                            <div className="content-type" key={contentType.id} style={ selected === contentType.id ? { backgroundColor: "black", color: "white", fontWeight: "bolder" } : null }  onClick={() => navigate(`/content-type/${contentType.id}`)}>
                                 <li className="basic-padding">{contentType.name}</li>
                             </div>
                         )
@@ -52,7 +41,8 @@ const Sidebar = ({ selected }) => {
 }
 
 Sidebar.propTypes = {
-    selected: PropTypes.number
+    selected: PropTypes.number,
+    contentTypes: PropTypes.array
 };
 
 export default Sidebar;
