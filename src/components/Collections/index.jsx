@@ -9,7 +9,7 @@ import Modal from "../Modal";
 const Collections = ({ collections, contentTypeId, title }) => {
 
     const [contentTypeSchema, setContentTypeSchema] = useState();
-    const [showCreateModal, setCreateShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const formRef = useRef();
 
     const refreshPage = () => {
@@ -37,7 +37,7 @@ const Collections = ({ collections, contentTypeId, title }) => {
         makeRequest(POST_COLLECTION(collectionValues, contentTypeId))
             .then((res) => {
                 console.log(res);
-                setCreateShowModal(false);
+                setShowModal(false);
                 refreshPage();
             }).catch((err) => {
                 console.log(err);
@@ -52,10 +52,12 @@ const Collections = ({ collections, contentTypeId, title }) => {
             collectionValues.push({ contentSchemaId: key, value });
         }
         console.log("CollectionValues", collectionValues);
-        makeRequest(PUT_COLLECTION(collectionValues, contentTypeId))
+        console.log("showModal", showModal)
+        console.log("CollectionId", showModal.split("-"));
+        makeRequest(PUT_COLLECTION(collectionValues, showModal.split("-")[1]))
             .then((res) => {
                 console.log(res);
-                setCreateShowModal(false);
+                setShowModal(false);
                 refreshPage();
             }).catch((err) => {
                 console.log(err);
@@ -76,7 +78,7 @@ const Collections = ({ collections, contentTypeId, title }) => {
         <div className="collections basic-padding">
             <div className="collections-header">
                 <h2>{collections.length} Entries Found</h2>
-                <button type="click" onClick={() => setCreateShowModal(true)} >Add a new Entry</button>
+                <button type="click" onClick={() => setShowModal("CREATE")} >Add a new entry</button>
             </div>
             <div className="collections-body">
                 <table>
@@ -102,16 +104,16 @@ const Collections = ({ collections, contentTypeId, title }) => {
                                     )
                                 })}
                                 <td className="collection-actions">
-                                    <img src="/edit-2.png" alt="EDIT" loading="lazy" />
+                                    <img src="/edit-2.png" alt="EDIT" loading="lazy" onClick={() => setShowModal(`UPDATE-${collection.id}`)}/>
                                     <img src="/delete-2.png" alt="DELETE" loading="lazy" onClick={() => deleteCollectionHandler(collection.id)}/>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                { showCreateModal && 
+                { showModal && 
                     <Modal>
-                        <form onSubmit={createCollectionHandler} ref={formRef}>
+                        <form onSubmit={ showModal === "CREATE" ? createCollectionHandler : editCollectionHandler } ref={formRef}>
                             <div className="form-scroll">
                                 <h2>{title}</h2>
                                 {contentTypeSchema && contentTypeSchema.map((field) => (
@@ -122,7 +124,7 @@ const Collections = ({ collections, contentTypeId, title }) => {
                                 ))}
                             </div>
                             <div className="form-footer">
-                                <button type="button" onClick={() => setCreateShowModal(false)} id="create-collection-cancel-button">Cancel</button>
+                                <button type="button" onClick={() => setShowModal(false)} id="create-collection-cancel-button">Cancel</button>
                                 <button type="submit">Submit</button>
                             </div>
                         </form>
