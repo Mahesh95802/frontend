@@ -1,8 +1,13 @@
 .App {
   overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .basic-padding{
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.rounded-corners{
+  border-radius: 10px;
 }
