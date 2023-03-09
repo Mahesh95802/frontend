@@ -1,17 +1,21 @@
 .sidebar{
     position: fixed;
+    overflow: scroll;
     top: 0;
     left: 0;
     width: 30vw;
     max-width: 300px;
+    min-width: 170px;
     height: 100vh;
     background-color: rgb(37, 37, 37);
 }
 
 .sidebar-header{
     display: flex;
+    /* flex: 2; */
     /* justify-content: center; */
-    max-height: 50px;
+    /* height: 50px; */
+    max-height: 69px;
     align-items: center;
     font-weight: bolder;
     color: white;
@@ -21,8 +25,8 @@
 }
 
 .sidebar h4{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: rgb(123, 123, 123);
 }
 

@@ -7,6 +7,7 @@ import ProtectedRoutes from './utils/ProtectedRoutes';
 import NotFoundPage from './pages/NotFoundPage';
 
 import './App.css';
+import CollectionPage from './pages/CollectionPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
+          <Route path="/content-type/:contentTypeId" element={<ProtectedRoutes><CollectionPage /></ProtectedRoutes>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

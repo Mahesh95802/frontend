@@ -1,5 +1,6 @@
 .main-panel{
     display: flex;
+    /* flex: 7; */
     flex-direction: column;
     height: 100vh;
 }

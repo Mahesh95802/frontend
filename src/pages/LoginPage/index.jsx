@@ -33,7 +33,11 @@ const LoginPage = () => {
     return (
         <div className="login-page">
             <div className="welcome-image">
-                <img src="" alt="Welcome Image" />
+                <div className="welcome-image-text">
+                    <h2>Design APIs fast,</h2>
+                    <h2>Manage content easily</h2>
+                </div>
+                <img src="welcome-1.png" loading="lazy" alt="Welcome Image" />
             </div>
             <div className="form-wrapper">
                 <div className="welcome-text">Login to your CMS+ account</div>

@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { GET_CONTENT_TYPES } from "../../common/endpoints";
+import makeRequest from "../../utils/makeRequest";
 
 import "./Sidebar.css";
 
-const Sidebar = ({ selected, contentTypes }) => {
+const Sidebar = ({ selected }) => {
+
+    const [contentTypes, setContentTypes] = useState();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        makeRequest(GET_CONTENT_TYPES)
+            .then((res) => {
+                console.log(res);
+                setContentTypes(res);
+            }).catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
     return (
         <div className="sidebar">
             <div className="sidebar-header">CMS+</div>
@@ -17,15 +34,15 @@ const Sidebar = ({ selected, contentTypes }) => {
                     contentTypes 
                     &&  contentTypes.map((contentType) => {
                         return (
-                            <div className="content-type" key={contentType.id} style={{ backgroundColor: "black", color: "white" }}>
+                            <div className="content-type" key={contentType.id} style={ selected === contentType.id ? { backgroundColor: "black", color: "white" } : null }  onClick={() => navigate(`/content-type/${contentType.id}`)}>
                                 <li className="basic-padding">{contentType.name}</li>
                             </div>
                         )
                     })
                 }
             </div>
-            <div style={ selected == "CONTENT TYPE BUILDER" ? { backgroundColor: "black", color: "white" } : null } className="content-type-builder">
-                <h4 className="basic-padding">
+            <div style={ selected ? null : { backgroundColor: "black" } } className="content-type-builder">
+                <h4 className="basic-padding" onClick={() => navigate('/home')} style={ selected ? null : { color: "white" } }>
                     CONTENT TYPE BUILDER
                 </h4>
             </div>
@@ -35,8 +52,7 @@ const Sidebar = ({ selected, contentTypes }) => {
 }
 
 Sidebar.propTypes = {
-    selected: PropTypes.string,
-    contentTypes: PropTypes.array
+    selected: PropTypes.number
 };
 
 export default Sidebar;
