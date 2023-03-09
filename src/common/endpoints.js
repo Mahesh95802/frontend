@@ -64,6 +64,16 @@ export const POST_COLLECTION = (data, contentTypeId) => ({
     }
 })
 
+export const PUT_COLLECTION = (data, collectionId) => ({
+    url: `${BACKEND_URL}/collections/${collectionId}`,
+    method: "PUT",
+    data: data,
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json'
+    }
+})
+
 export const DELETE_COLLECTION = (collectionId) => ({
     url: `${BACKEND_URL}/collections/${collectionId}`,
     method: "DELETE",

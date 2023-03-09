@@ -26,6 +26,10 @@
     width: 100%;
 }
 
+.collection-actions img{
+    margin: 5px;
+}
+
 .collections table{
     width: 100%;
     height: 100%;

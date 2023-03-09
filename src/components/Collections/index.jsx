@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import makeRequest from "../../utils/makeRequest";
 
 import "./Components.css";
-import { GET_CONTENT_TYPE_SCHEMA, POST_COLLECTION, DELETE_COLLECTION } from "../../common/endpoints";
+import { GET_CONTENT_TYPE_SCHEMA, POST_COLLECTION, PUT_COLLECTION, DELETE_COLLECTION } from "../../common/endpoints";
 import Modal from "../Modal";
 
 const Collections = ({ collections, contentTypeId, title }) => {
@@ -44,7 +44,23 @@ const Collections = ({ collections, contentTypeId, title }) => {
             });
     }
 
-    const editCollectionHandler = () => {}
+    const editCollectionHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData(formRef.current);
+        const collectionValues = [];
+        for (const [key, value] of formData.entries()) {
+            collectionValues.push({ contentSchemaId: key, value });
+        }
+        console.log("CollectionValues", collectionValues);
+        makeRequest(PUT_COLLECTION(collectionValues, contentTypeId))
+            .then((res) => {
+                console.log(res);
+                setCreateShowModal(false);
+                refreshPage();
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
 
     const deleteCollectionHandler = (collectionId) => {
         makeRequest(DELETE_COLLECTION(collectionId))
@@ -86,8 +102,8 @@ const Collections = ({ collections, contentTypeId, title }) => {
                                     )
                                 })}
                                 <td className="collection-actions">
-                                    <img src="edit-1.png" alt="EDIT" loading="lazy" />
-                                    <img src="delete-1.png" alt="DELETE" loading="lazy" onClick={() => deleteCollectionHandler(collection.id)}/>
+                                    <img src="/edit-2.png" alt="EDIT" loading="lazy" />
+                                    <img src="/delete-2.png" alt="DELETE" loading="lazy" onClick={() => deleteCollectionHandler(collection.id)}/>
                                 </td>
                             </tr>
                         ))}
