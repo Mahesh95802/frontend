@@ -30,10 +30,10 @@ export const VERIFY_TOKEN_ROUTE = (token) => ({
     }
 })
 
-export const GET_USER_ROUTE = (token) => ({
-    url: `${BACKEND_URL}/`,
+export const GET_CONTENT_TYPES = {
+    url: `${BACKEND_URL}/content-types`,
     method: "GET",
     headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
     }
-})
+}
