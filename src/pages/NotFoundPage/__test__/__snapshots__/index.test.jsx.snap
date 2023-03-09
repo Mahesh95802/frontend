@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage should render the page 1`] = `
+<DocumentFragment>
+  <div
+    class="404"
+  >
+    <h1>
+      404
+    </h1>
+    <h2>
+      NotFound
+    </h2>
+  </div>
+</DocumentFragment>
+`;
