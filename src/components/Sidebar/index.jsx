@@ -9,7 +9,7 @@ const Sidebar = ({ selected, contentTypes, navigate }) => {
 		<div className="sidebar">
 			<div className="sidebar-header">CMS+</div>
 			<div className="collection-types">
-				<div className="collection-types-header" style={ selected == 'COLLECTION TYPES' ? { backgroundColor: 'black', color: 'white' } : null }>
+				<div className="collection-types-header" >
 					<h4 className="basic-padding">
                         COLLECTION TYPES
 					</h4>
