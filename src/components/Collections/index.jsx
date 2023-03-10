@@ -75,7 +75,7 @@ const Collections = ({ collections, contentTypeId, title }) => {
 	};
 
 	return (
-		<div className="collections basic-padding">
+		<div className="collections basic-padding" data-testid='collections'>
 			<div className="collections-header">
 				<h2>{collections.length} Entries Found</h2>
 				<button type="click" onClick={() => setShowModal('CREATE')} >Add a new entry</button>

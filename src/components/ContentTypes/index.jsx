@@ -54,7 +54,7 @@ const ContentTypes = ({ contentTypes }) => {
 	};
 
 	return (
-		<div className="content-types">
+		<div className="content-types" data-testid='content-types'>
 			<div className="content-type-list basic-padding">
 				<div className="content-type-search">
 					<p>{contentTypes.length} Types</p>
