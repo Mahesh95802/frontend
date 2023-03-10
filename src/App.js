@@ -10,19 +10,19 @@ import './App.css';
 import CollectionPage from './pages/CollectionPage';
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/home" element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
-          <Route path="/content-type/:contentTypeId" element={<ProtectedRoutes><CollectionPage /></ProtectedRoutes>} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Routes>
+					<Route path="/login" element={<LoginPage />} />
+					<Route path="/register" element={<RegisterPage />} />
+					<Route path="/home" element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
+					<Route path="/content-type/:contentTypeId" element={<ProtectedRoutes><CollectionPage /></ProtectedRoutes>} />
+					<Route path="*" element={<NotFoundPage />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

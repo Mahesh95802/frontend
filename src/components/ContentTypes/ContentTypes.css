@@ -40,3 +40,66 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.content-type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: white;
+    color: rgb(72, 72, 72); */
+}
+
+.content-types .modal {
+    justify-content: center;
+    align-items: center;
+}
+
+.content-types .modal-content {
+    justify-content: center;
+    /* align-items: center; */
+    background-color: white;
+    height: 300px;
+    width: 30vw;
+    min-width: 300px;
+    max-width: 500px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.content-types .modal-content form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content-types .modal-content form h3 {
+    margin-bottom: 50px;
+}
+
+.content-types .modal-content form label {
+    color: grey;
+}
+
+.content-types .modal-content form input {
+    margin: 5px 0px;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid rgb(97, 104, 158);
+    box-sizing: border-box;
+}
+
+.content-types .modal-content .create-content-type-form-actions {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.content-types .modal-content .create-content-type-form-actions .create-content-type-button {
+    background-color: blueviolet;
+    color: white;
+}

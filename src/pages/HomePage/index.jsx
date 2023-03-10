@@ -8,24 +8,24 @@ import './HomePage.css';
 
 const HomePage = () => {
 
-    const [contentTypes, setContentTypes] = React.useState();
+	const [contentTypes, setContentTypes] = React.useState();
 
-    useEffect(() => {
-        makeRequest(GET_CONTENT_TYPES)
-            .then((res) => {
-                console.log(res);
-                setContentTypes(res);
-            }).catch((err) => {
-                console.log(err);
-            });
-    }, []);
+	useEffect(() => {
+		makeRequest(GET_CONTENT_TYPES)
+			.then((res) => {
+				console.log(res);
+				setContentTypes(res);
+			}).catch((err) => {
+				console.log(err);
+			});
+	}, []);
 
-    return (
-        <div className="home-page">
-            <Sidebar contentTypes={contentTypes}/>
-            <MainPanel title="Content Type Builder" contentTypes={contentTypes}/>
-        </div>
-    );
-}
+	return (
+		<div className="home-page">
+			<Sidebar contentTypes={contentTypes}/>
+			<MainPanel title="Content Type Builder" contentTypes={contentTypes}/>
+		</div>
+	);
+};
 
 export default HomePage;

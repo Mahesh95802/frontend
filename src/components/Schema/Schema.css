@@ -1,10 +1,73 @@
+.schema{
+    width: 100%;
+    height: 100%;
+}
+
 .schema-header{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-evenly;
     width: 100%;
-    height: 50px;
+    height: 60px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.schema-name{
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.add-schema-field{
+    border: 2px rgb(180, 89, 193) dashed !important;
+    color: rgb(180, 89, 193) !important;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.schema-list{
+    overflow: scroll;
+    height: 70vh;
+}
+
+.schema-fields{
+    width: 100%;
+}
+
+.schema table{
+    width: 100%;
+    box-sizing: border-box;
+    overflow: scroll;
+    border-spacing: 0px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    color: gray;
+    align-items: center;
+}
+
+.field{
+    margin: 10px 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 55px;
+    box-sizing: border-box;
+    /* overflow: scroll; */
+    background-color: white;
+}
+
+.field-name{
+    font-weight: bolder;
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.field-actions img{
+    margin: 5px;
+}
+

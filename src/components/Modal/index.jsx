@@ -1,20 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import "./Modal.css";
+import './Modal.css';
 
 const Modal = ({ children }) => {
-    return (
-        <div className="modal">
-            <div className="modal-content">
-                {children}
-            </div>
-        </div>
-    )
+	return (
+		<div className="modal">
+			<div className="modal-content">
+				{children}
+			</div>
+		</div>
+	);
 };
 
 Modal.propTypes = {
-    children: PropTypes.node,
+	children: PropTypes.node,
 };
 
 export default Modal;
