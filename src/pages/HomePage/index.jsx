@@ -23,7 +23,7 @@ const HomePage = () => {
     return (
         <div className="home-page">
             <Sidebar contentTypes={contentTypes}/>
-            <MainPanel title="Content Type Builder"/>
+            <MainPanel title="Content Type Builder" contentTypes={contentTypes}/>
         </div>
     );
 }

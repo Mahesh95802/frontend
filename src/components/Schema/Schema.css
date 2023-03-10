@@ -1,0 +1,10 @@
+.schema-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
