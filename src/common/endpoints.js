@@ -64,6 +64,16 @@ export const POST_CONTENT_TYPE = (data) => ({
 	}
 });
 
+export const POST_CONTENT_TYPE_SCHEMA = (data, contentTypeId) => ({
+    url: `${BACKEND_URL}/schema/content-types/${contentTypeId}`,
+    method: 'POST',
+    data: data,
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json'
+    }
+});
+
 export const POST_COLLECTION = (data, contentTypeId) => ({
 	url: `${BACKEND_URL}/collections/content-types/${contentTypeId}`,
 	method: 'POST',
@@ -84,6 +94,16 @@ export const PUT_CONTENT_TYPE = (data, contentTypeId) => ({
 	}
 });
 
+export const PUT_CONTENT_TYPE_SCHEMA = (data, schemaId) => ({
+    url: `${BACKEND_URL}/schema/${schemaId}`,
+    method: 'PUT',
+    data: data,
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        'Content-Type': 'application/json'
+    }
+});
+
 export const PUT_COLLECTION = (data, collectionId) => ({
 	url: `${BACKEND_URL}/collections/${collectionId}`,
 	method: 'PUT',
@@ -92,6 +112,14 @@ export const PUT_COLLECTION = (data, collectionId) => ({
 		Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 		'Content-Type': 'application/json'
 	}
+});
+
+export const DELETE_SCHEMA = (schemaId) => ({
+    url: `${BACKEND_URL}/schema/${schemaId}`,
+    method: 'DELETE',
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    }
 });
 
 export const DELETE_COLLECTION = (collectionId) => ({

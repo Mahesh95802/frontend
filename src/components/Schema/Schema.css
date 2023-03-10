@@ -71,3 +71,20 @@
     margin: 5px;
 }
 
+.schema .create-schema-form-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.schema .create-schema-form-actions button{
+    width: 100px;
+    margin-top: 70px; 
+}
+
+.schema .create-schema-form-actions .create-schema-button{
+    color: white;
+    background-color: blueviolet;
+    font-weight: bolder;
+}

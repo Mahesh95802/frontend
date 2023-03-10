@@ -9,7 +9,7 @@ const makeRequest = async (request, navigate) => {
 	} catch (error) {
 		console.log(error);
 		if (navigate && error.response.status === 401) navigate('/login');
-		throw new HTTPError(error.response.status, error.response.data.message);
+		throw new HTTPError(error.response.status, error.response.data.error);
 		// return error
 	}
 };
