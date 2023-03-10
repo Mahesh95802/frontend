@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 
 import './Sidebar.css';
 
-const Sidebar = ({ selected, contentTypes }) => {
-
-	const navigate = useNavigate();
+const Sidebar = ({ selected, contentTypes, navigate }) => {
 
 	return (
 		<div className="sidebar">
@@ -24,6 +21,9 @@ const Sidebar = ({ selected, contentTypes }) => {
 							<div className="content-type" key={contentType.id} style={ selected === contentType.id ? { backgroundColor: 'black', color: 'white', fontWeight: 'bolder' } : null }  onClick={() => navigate(`/content-type/${contentType.id}`)}>
 								<li className="basic-padding">{contentType.name}</li>
 							</div>
+							// <a className="content-type" href={`content-type/${contentType.id}`} key={contentType.id} style={ selected === contentType.id ? { backgroundColor: 'black', color: 'white', fontWeight: 'bolder' } : null } >
+							// 	<li className="basic-padding">{contentType.name}</li>
+							// </a>
 						);
 					})
 				}
@@ -40,7 +40,8 @@ const Sidebar = ({ selected, contentTypes }) => {
 
 Sidebar.propTypes = {
 	selected: PropTypes.number,
-	contentTypes: PropTypes.array
+	contentTypes: PropTypes.array,
+	navigate: PropTypes.func
 };
 
 export default Sidebar;

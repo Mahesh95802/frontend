@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import MainPanel from '../../components/MainPanel';
 import Sidebar from '../../components/Sidebar';
 import { GET_COLLECTIONS } from '../../common/endpoints';
@@ -12,6 +12,7 @@ const CollectionPage = () => {
 	const { contentTypeId } = useParams();
 	const [contentTypes, setContentTypes] = useState();
 	const [collections, setCollections] = useState();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		makeRequest(GET_COLLECTIONS(contentTypeId))
@@ -28,11 +29,11 @@ const CollectionPage = () => {
 			}).catch((err) => {
 				console.log(err);
 			});
-	}, []);
+	}, [navigate]);
 
 	return (
 		<div className="collections-page">
-			<Sidebar selected={parseInt(contentTypeId)} contentTypes={contentTypes}/>
+			<Sidebar selected={parseInt(contentTypeId)} contentTypes={contentTypes} navigate={navigate} />
 			{(contentTypes && collections) && <MainPanel title={contentTypes.find((contentType) => contentType.id === parseInt(contentTypeId)).name} collections={collections} contentTypeId={parseInt(contentTypeId)}/>}
 		</div>
 	);
