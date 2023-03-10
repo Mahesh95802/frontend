@@ -4,6 +4,7 @@ exports[`Modal should render correctly 1`] = `
 <DocumentFragment>
   <div
     class="modal"
+    data-testid="modal"
   >
     <div
       class="modal-content"
