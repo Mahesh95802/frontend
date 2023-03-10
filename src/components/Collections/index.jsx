@@ -24,7 +24,7 @@ const Collections = ({ collections, contentTypeId, title }) => {
 			}).catch((err) => {
 				console.log(err);
 			});
-	}, []);
+	}, [contentTypeId]);
 
 	const createCollectionHandler = (e) => {
 		e.preventDefault();
@@ -84,8 +84,8 @@ const Collections = ({ collections, contentTypeId, title }) => {
 				<table>
 					<thead>
 						<tr>
-							{contentTypeSchema && contentTypeSchema.map((field) => (
-								<th className="fields" key={field.id}>{field.fieldName}</th>
+							{contentTypeSchema && contentTypeSchema.map((field, index) => (
+								index > 3 ? null : <th className="fields" key={field.id}>{field.fieldName}</th>
 							))}
 							<th className="collection-actions">Actions</th>
 						</tr>
@@ -93,8 +93,9 @@ const Collections = ({ collections, contentTypeId, title }) => {
 					<tbody>
 						{collections && collections.map((collection) => (
 							<tr className="collection" key={collection.id}>
-								{contentTypeSchema && contentTypeSchema.map((field) => {
+								{contentTypeSchema && contentTypeSchema.map((field, index) => {
 									// console.log("Collection", collection)
+									if (index > 3) return null;
 									const collectionMap = {};
 									collection.CollectionValues.map((value) => ( collectionMap[value.ContentSchema.id] = value.value ));
 									// console.log("CollectionMap", collectionMap);

@@ -29,7 +29,7 @@ const CollectionPage = () => {
 			}).catch((err) => {
 				console.log(err);
 			});
-	}, [navigate]);
+	}, [contentTypeId]);
 
 	return (
 		<div className="collections-page">
