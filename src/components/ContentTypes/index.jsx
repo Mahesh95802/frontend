@@ -54,7 +54,7 @@ const ContentTypes = ({ contentTypes }) => {
 	};
 
 	return (
-		selectedContentType && <div className="content-types">
+		<div className="content-types">
 			<div className="content-type-list basic-padding">
 				<div className="content-type-search">
 					<p>{contentTypes.length} Types</p>
@@ -63,7 +63,7 @@ const ContentTypes = ({ contentTypes }) => {
 				<button className="create-content-type" onClick={() => setShowModal('CREATE')}>+ New Type</button>
 				<div className="content-types-list">
 					{contentTypes && contentTypes.map((contentType) => (
-						<button className="content-type basic-padding" key={contentType.id} onClick={() => setSelectedContentType(contentType)} style={selectedContentType.id === contentType.id ? { color: 'white', backgroundColor: 'blueviolet', fontWeight: 'bolder' } : null }>
+						<button className="content-type basic-padding" key={contentType.id} onClick={() => setSelectedContentType(contentType)} style={selectedContentType?.id === contentType.id ? { color: 'white', backgroundColor: 'blueviolet', fontWeight: 'bolder' } : null }>
 							<div>{contentType.name}</div>
 							<div>{contentType.Collections.length}</div>
 						</button>
@@ -87,7 +87,7 @@ const ContentTypes = ({ contentTypes }) => {
 };
 
 ContentTypes.propTypes = {
-	contentTypes: PropTypes.array,
+	contentTypes: PropTypes.array.isRequired,
 };
 
 export default ContentTypes;
